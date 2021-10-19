@@ -1,0 +1,49 @@
+version : "3"
+services:
+  fl-assessment:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: fl-assessment
+    depends_on:
+      - fl-assessment-pg
+    volumes:
+      - .:/var/www/html
+    environment:
+      APP_DEBUG: 'true'
+      APP_NAME: 'F+L Laravel Boilerplate'
+      APP_ENV: 'local'
+      APP_KEY: 'base64:nqyFiUz3Ne+2ybLfY7Ylgm57Z5+ysqGP85TwVYdQfyY='
+      APP_URL: 'http://210.101.1.1'
+      DB_CONNECTION: 'pgsql'
+      DATABASE_URL: 'pgsql://postgres:docker@laravel-pg:5432/postgres'
+      ROLLBAR_TOKEN: ''
+      SENTRY_DSN: ''
+      WEATHER_API_KEY: '858f15fed9292cbe25c341a754c55e45'
+    networks:
+      laravel-api-network:
+        ipv4_address: 210.101.1.1
+
+  fl-assessment-pg:
+    image: postgres:latest
+    environment:
+      POSTGRES_PASSWORD: docker
+    container_name: laravel-pg
+    volumes:
+      - laravel-pg-disk:/var/lib/postgres
+    networks:
+      laravel-api-network:
+        ipv4_address: 210.101.1.2
+
+
+# On-disk storage of DB data, when containers are stopped/removed
+volumes:
+  laravel-pg-disk: {}
+
+# Local network for services running using this docker-compose config
+networks:
+  laravel-api-network:
+    ipam:
+      driver: default
+      config:
+        - subnet: 210.101.0.0/16

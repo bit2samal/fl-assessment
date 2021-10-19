@@ -1,0 +1,4 @@
+#!/bin/sh
+
+chmod +x .deploy/pre_push.sh
+.deploy/pre_push.sh
