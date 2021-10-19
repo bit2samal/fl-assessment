@@ -2,19 +2,13 @@
 
 namespace App\Http;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-use Illuminate\Foundation\Bus\DispatchesJobs;
-use Illuminate\Foundation\Validation\ValidatesRequests;
-use Illuminate\Routing\Controller as BaseController;
 
-class ApiController extends BaseController
+class ApiController extends Controller
 {
-    use AuthorizesRequests;
-    use DispatchesJobs;
-    use ValidatesRequests;
 
-    public function sendResponse(
+    public function jsonResponse(
         int $status_code,
         bool $success = true,
         string $message = '',
