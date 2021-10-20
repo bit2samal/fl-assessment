@@ -17,6 +17,8 @@ class UserCities extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('user_id');
             $table->string('city');
+            $table->string('state');
+            $table->string('country');
             $table->boolean('is_default')->default(false);
             $table->timestamps();
         });
