@@ -16,10 +16,11 @@ services:
       APP_KEY: 'base64:nqyFiUz3Ne+2ybLfY7Ylgm57Z5+ysqGP85TwVYdQfyY='
       APP_URL: 'http://210.101.1.1'
       DB_CONNECTION: 'pgsql'
-      DATABASE_URL: 'pgsql://postgres:docker@laravel-pg:5432/postgres'
+      DATABASE_URL: 'pgsql://postgres:docker@fl-assessment-pg:5432/postgres'
       ROLLBAR_TOKEN: ''
       SENTRY_DSN: ''
       WEATHER_API_KEY: '858f15fed9292cbe25c341a754c55e45'
+      WEATHER_API_URL: 'https://api.openweathermap.org/data/2.5/'
     networks:
       laravel-api-network:
         ipv4_address: 210.101.1.1
