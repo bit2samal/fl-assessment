@@ -11,10 +11,15 @@ class UserCitiesController extends ApiController
 {
     public function saveCity(Request $request): JsonResponse
     {
-        $message = UserCities::firstOrCreate(['user_id' => 1, 'city' => $request->city_name])
+        $message = UserCities::firstOrCreate([
+                                                 'user_id' => 1,
+                                                 'city' => $request->input('city'),
+                                                 'state' => $request->input('state'),
+                                                 'country' => $request->input('country')
+                                             ])
             ? "City saved" : "Unable to save city";
 
-        return $this->jsonResponse(200, true, $message, ['city' => $request->city_name]);
+        return $this->jsonResponse(200, true, $message, ['city' => $request->input('city')]);
     }
 
     public function getCities(): JsonResponse
