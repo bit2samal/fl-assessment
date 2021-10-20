@@ -18,7 +18,8 @@ use Illuminate\Support\Facades\Route;
 //    return $request->user();
 //});
 
-Route::get('/add_city/{city_name}', [\App\Http\Controllers\UserCitiesController::class, 'saveCity']);
+Route::post('/add_city', [\App\Http\Controllers\UserCitiesController::class, 'saveCity']);
 Route::get('/city_list', [\App\Http\Controllers\UserCitiesController::class, 'getCities']);
 Route::get('/remove_city/{city_id}', [\App\Http\Controllers\UserCitiesController::class, 'removeCity']);
-Route::get('/weather_info/{city_id}', [\App\Http\Controllers\UserCitiesController::class, 'saveCity']);
+Route::get('/weather/{city_id}', [\App\Http\Controllers\WeatherController::class, 'weather']);
+Route::get('/forecast/{city_id}', [\App\Http\Controllers\WeatherController::class, 'forecast']);
