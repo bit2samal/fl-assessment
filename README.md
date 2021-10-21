@@ -10,4 +10,4 @@ This application built using laravel framework
 
 #### You can find Postman API collection `Weather assesessment.postman_collection.json`
 
-
+`WEATHER_API_KEY` can be generated from https://openweathermap.org/api
