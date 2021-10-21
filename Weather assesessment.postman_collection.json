@@ -1,0 +1,148 @@
+{
+	"info": {
+		"_postman_id": "5f4bc4ee-1f24-4a08-ac6c-d5698bc7bb69",
+		"name": "Weather assesessment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Add city",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "city",
+							"value": "Chandigarh",
+							"type": "text"
+						},
+						{
+							"key": "state",
+							"value": "Punjab",
+							"type": "text"
+						},
+						{
+							"key": "country",
+							"value": "India",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://210.101.1.1/api/add_city",
+					"protocol": "http",
+					"host": [
+						"210",
+						"101",
+						"1",
+						"1"
+					],
+					"path": [
+						"api",
+						"add_city"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Remove city",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://210.101.1.1/api/remove_city/4",
+					"protocol": "http",
+					"host": [
+						"210",
+						"101",
+						"1",
+						"1"
+					],
+					"path": [
+						"api",
+						"remove_city",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "City list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://210.101.1.1/api/city_list",
+					"protocol": "http",
+					"host": [
+						"210",
+						"101",
+						"1",
+						"1"
+					],
+					"path": [
+						"api",
+						"city_list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Weather",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://210.101.1.1/api/weather/1",
+					"protocol": "http",
+					"host": [
+						"210",
+						"101",
+						"1",
+						"1"
+					],
+					"path": [
+						"api",
+						"weather",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Forecast",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://210.101.1.1/api/forecast/1",
+					"protocol": "http",
+					"host": [
+						"210",
+						"101",
+						"1",
+						"1"
+					],
+					"path": [
+						"api",
+						"forecast",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
