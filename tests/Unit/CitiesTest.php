@@ -3,9 +3,13 @@
 namespace Tests\Unit;
 
 use Tests\TestCase;
+use App\Models\UserCities;
 
 class CitiesTest extends TestCase
 {
+
+    private int $city_id;
+
     /**
      * A basic unit test example.
      *
@@ -36,5 +40,18 @@ class CitiesTest extends TestCase
 
         $cities = json_decode($response->content(), true);
         $this->assertTrue((bool)array_search('Patiala', array_column($cities['data'], 'city')));
+    }
+
+    public function testRemoveCity()
+    {
+        $city = UserCities::where("city", "Patiala")->first('id');
+        $city_id = $city->id;
+        $response = $this->get($this->api_url . "remove_city/$city_id");
+        $response->assertStatus(200)
+            ->assertJson(['success' => true]);
+
+        $this->assertDatabaseMissing('user_cities', [
+            "city" => "Patiala"
+        ]);
     }
 }
