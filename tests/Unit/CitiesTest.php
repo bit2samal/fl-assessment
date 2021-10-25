@@ -28,4 +28,13 @@ class CitiesTest extends TestCase
             "country" => "India"
         ]);
     }
+    public function testListCity()
+    {
+        $response = $this->get($this->api_url . "city_list");
+        $response->assertStatus(200)
+            ->assertJson(['success' => true]);
+
+        $cities = json_decode($response->content(), true);
+        $this->assertTrue((bool)array_search('Patiala', array_column($cities['data'], 'city')));
+    }
 }
